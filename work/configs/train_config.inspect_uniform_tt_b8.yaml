@@ -1,0 +1,17 @@
+dataset_root: "/home/ubuntu/dataset/lerobot_dataset/crane_plus_inspect_uniform_trim_tt"  # 【改変】講義: crane_plus_pekori(独自タスク。対象位置を -0.5〜+0.5 から20か所選んだ版。静止削除 + [対象方向, 経過時間x4])
+repo_id: "crane_plus_inspect_uniform_trim_tt"  # 【改変】講義: crane_plus_pekori
+output_directory: "/home/ubuntu/checkpoints/train/crane_plus_inspect_uniform_act_tt_b8"  # 【改変】講義: crane_plus_pekori_act
+config_path: "configs/crane_features_inspect_uniform.py"  # 【改変】講義: configs/crane_features.py
+
+device: "cpu"
+training_steps: 3000  # 【改変】講義: 200(データが pekori の約3倍のため 2000 → 3000)
+log_freq: 1
+num_workers: 2
+batch_size: 8  # 【改変】講義: 2(batch 2 x 3000 steps ではデータを約2周しか見ず、対象の方向を覚えられなかったため)
+chunk_size: 16
+n_action_steps: 1
+learning_rate: 0.0001
+delta_timestamps:
+  observation.environment_state: [0.0]
+  observation.state: [0.0]
+  action: [-0.1, 0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4]

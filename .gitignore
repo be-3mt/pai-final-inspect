@@ -1,0 +1,16 @@
+video/
+.venv/
+# 大きなデータ(rosbag・データセット・チェックポイント)
+rosbags/
+dataset/
+checkpoints/
+*.mcap
+*.db3
+*.safetensors
+# 作業用(Claude Code への指示・キャッシュ・レポート下書き)
+CLAUDE.md
+AGENTS.md
+.claude/
+__pycache__/
+report/*
+!report/*.pdf

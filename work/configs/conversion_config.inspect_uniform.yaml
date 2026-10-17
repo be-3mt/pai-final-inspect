@@ -1,0 +1,6 @@
+# 【改変】講義: pekori 用(conversion_config.pekori.yaml に保存)。検査姿勢タスク・対象位置を範囲内から選んだ版(inspect_uniform)用
+# 3か所版は conversion_config.inspect.yaml
+bag_dir: "/home/ubuntu/dataset/rosbags/inspect_uniform"
+output_dir: "/home/ubuntu/dataset/lerobot_dataset/crane_plus_inspect_uniform"
+config: "configs/crane_features_inspect_uniform.py"
+target_freq: 20

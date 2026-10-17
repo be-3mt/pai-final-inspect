@@ -1,0 +1,17 @@
+dataset_root: "/home/ubuntu/dataset/lerobot_dataset/crane_plus_inspect_trim_tt"  # 【改変】講義: crane_plus_pekori(独自タスク inspect。静止削除 + environment_state を [対象方向, 経過時間x4] にした版)
+repo_id: "crane_plus_inspect_trim_tt"  # 【改変】講義: crane_plus_pekori
+output_directory: "/home/ubuntu/checkpoints/train/crane_plus_inspect_act_tt"  # 【改変】講義: crane_plus_pekori_act
+config_path: "configs/crane_features_inspect.py"  # 【改変】講義: configs/crane_features.py
+
+device: "cpu"
+training_steps: 3000  # 【改変】講義: 200(データが pekori の約3倍のため 2000 → 3000)
+log_freq: 1
+num_workers: 2
+batch_size: 2
+chunk_size: 16
+n_action_steps: 1
+learning_rate: 0.0001
+delta_timestamps:
+  observation.environment_state: [0.0]
+  observation.state: [0.0]
+  action: [-0.1, 0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4]
